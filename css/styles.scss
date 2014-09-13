@@ -1,0 +1,62 @@
+---
+---
+
+$green: #359058;
+
+@mixin Lavanderia($size) {
+  font-family: Lavanderia;
+  font-size: $size;
+  -webkit-font-feature-settings: "titl", "calt" off;
+     -moz-font-feature-settings: "titl", "calt" off;
+      -ms-font-feature-settings: "titl", "calt" off;
+          font-feature-settings: "titl", "calt" off;
+}
+
+body {
+  background-color: #f7f7f7;
+  background-image: url("/img/bg.png");
+  background-position: top center;
+  background-size: 256px;
+}
+
+div#container {
+  color: $green;
+  height: 200px;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -140px;
+  position: absolute;
+  top: 50%;
+  width: 800px;
+}
+
+div#title {
+  @include Lavanderia(120px);
+  display: block;
+  font-weight: bold;
+  margin-bottom: -35px;
+  text-align: center;
+  text-shadow: 0px 2px 2px #fff, 0px -1px 2px #888;
+}
+
+div#countdown > div {
+  display: block;
+  text-align: center;
+}
+
+div.number, div.label {
+  display: inline-block;
+  font-family: Futura;
+  text-shadow: 0px 2px 2px #fff, 0px 0px 2px #888;
+  text-transform: uppercase;
+  width: 140px;
+}
+
+div.number {
+  font-size: 60px;
+}
+
+div.label {
+  font-weight: bold;
+  letter-spacing: 3px;
+}

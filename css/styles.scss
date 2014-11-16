@@ -16,6 +16,8 @@ $large: 23.75px;
 $medium: 16px;
 $small: 11.85px;
 
+$font: "Quattrocento";
+
 @font-face {
   font-family: Futura;
   font-weight: bold;
@@ -40,13 +42,14 @@ body {
   background-position: top center;
   background-size: 256px;
   color: $truffle;
-  font-family: "Radley", serif;
+  font-family: $font, serif;
   font-size: $medium;
   line-height: $medium * 1.4;
 }
 
 nav {
   margin: 30px auto;
+  padding-left: 40px;
   text-align: center;
   div, a {
     display: inline-block;
@@ -113,6 +116,9 @@ main {
     text-decoration: none;
     &:hover {
       color: $peony;
+      & > img {
+        box-shadow: 0px 4px 7px $truffle;
+      }
     }
   }
 
@@ -142,8 +148,9 @@ main {
 
   h1 {
     font-size: $xlarge;
-    font-weight: normal;
+    font-weight: bold;
     line-height: $xlarge;
+    margin-bottom: 0;
   }
 
   h2:first-child {
@@ -177,8 +184,9 @@ main {
   }
 
   iframe, img {
+    @include transition(box-shadow 0.2s);
     border: 10px solid #fafafa;
-    box-shadow: 0px 3px 5px $brown;
+    box-shadow: 0px 3px 5px $truffle;
   }
 
   iframe {
@@ -201,10 +209,6 @@ main {
       display: inline-block;
       margin: 40px;
       width: 200px;
-      &:hover {
-        @include transition(box-shadow 0.2s);
-        box-shadow: 0px 4px 7px $brown;
-      }
     }
   }
 
@@ -218,7 +222,7 @@ main {
       margin-top: -55px;
     }
     &.media {
-      margin: -60px 5px 20px auto;
+      margin: -55px 10px 40px auto;
     }
   }
 
@@ -255,10 +259,10 @@ main {
     -webkit-border-radius: 0;
             border-radius: 0;
     box-sizing: border-box;
-    font-family: "Radley", serif;
+    font-family: $font, serif;
     font-size: $medium;
     margin: 10px auto;
-    padding: 5px;
+    padding: 6px 8px;
   }
 
   input[type="text"] {

@@ -1,63 +1,305 @@
 ---
 ---
 
-$green: #699437;
+$brown: #3d2e27;
+$truffle: #8c6757;
+$coconut: #bc794b;
+$coral: #c47d6a;
+$peony: #d36952;
+$ivory: #efe3d8;
+$peach: #dda485;
 
-@mixin Lavanderia($size) {
-  font-family: Lavanderia;
-  font-size: $size;
-  // -webkit-font-feature-settings: "titl", "calt" off;
-    //  -moz-font-feature-settings: "titl", "calt" off;
-      // -ms-font-feature-settings: "titl", "calt" off;
-          // font-feature-settings: "titl", "calt" off;
+$title: 128px;
+$xxlarge: 64px;
+$xlarge: 47.5px;
+$large: 23.75px;
+$medium: 16px;
+$small: 11.85px;
+
+@font-face {
+  font-family: Futura;
+  font-weight: bold;
+  src: url("/css/fonts/FuturaStd-Heavy.otf") format("opentype");
+}
+
+@mixin transition($animation) {
+  -webkit-transition: $animation;
+     -moz-transition: $animation;
+       -o-transition: $animation;
+          transition: $animation;
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
 }
 
 body {
-  background-color: #f7f7f7;
-  background-image: url("/img/bg.png");
+  background-color: $ivory;
   background-position: top center;
   background-size: 256px;
+  color: $truffle;
+  font-family: "Radley", serif;
+  font-size: $medium;
+  line-height: $medium * 1.4;
 }
 
-div#container {
-  color: $green;
-  height: 200px;
-  left: 50%;
-  margin-left: -450px;
-  margin-top: -135px;
-  position: absolute;
-  top: 50%;
-  width: 900px;
-}
-
-div#title {
-  @include Lavanderia(120px);
-  display: block;
-  font-weight: bold;
-  margin-bottom: -15px;
+nav {
+  margin: 30px auto;
   text-align: center;
-  text-shadow: 0px 2px 2px #fff, 0px -1px 2px #888;
+  div, a {
+    display: inline-block;
+    vertical-align: top;
+  }
+  #leftNav {
+    text-align: right;
+    width: 250px;
+  }
+  #rightNav {
+    text-align: left;
+    width: 300px;
+  }
+  a.link {
+    @include transition(border-color 0.1s);
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    color: $peach;
+    font-family: Futura;
+    font-size: $medium;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover {
+      border-color: $peach;
+    }
+    &.active {
+      border-color: $peony;
+      color: $peony;
+      cursor: default;
+    }
+  }
+  a#title {
+    background-image: url("/img/logo_peach.png");
+    background-size: 100%;
+    height: 70px;
+    width: 290px;
+    &.active {
+      background-image: url("/img/logo_peony.png");
+      cursor: default;
+    }
+  }
 }
 
-div#countdown > div {
-  display: block;
+main {
+  margin: 40px auto;
+  max-width: 800px;
   text-align: center;
-}
 
-div.number, div.label {
-  display: inline-block;
-  font-family: Futura;
-  text-shadow: 0px 2px 2px #fff, 0px 0px 2px #888;
-  text-transform: uppercase;
-  width: 100px;
-}
+  & > div {
+    display: inline-block;
+    margin-bottom: 30px;
+    text-align: left;
+    vertical-align: top;
+  }
 
-div.number {
-  font-size: 40px;
-}
+  a {
+    @include transition(color 0.1s);
+    color: $coral;
+    text-decoration: none;
+    &:hover {
+      color: $peony;
+    }
+  }
 
-div.label {
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 3px;
+  ul {
+
+    padding: 0 30px;
+
+    li {
+      list-style: none;
+      margin-bottom: 10px;
+      position: relative;
+
+      &:before {
+        border-right: 2px solid $truffle;
+        content: "";
+        height: 86%;
+        left: -17px;
+        line-height: 0;
+        opacity: 0.5;
+        position: absolute;
+        top: 9%;
+        width: 0;
+      }
+    }
+
+  }
+
+  h1 {
+    font-size: $xlarge;
+    font-weight: normal;
+    line-height: $xlarge;
+  }
+
+  h2:first-child {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  h2 {
+    border-top: 2px solid $peach;
+    font-size: $large;
+    font-weight: normal;
+    line-height: $large;
+    margin: 20px auto 10px;
+    padding-top: 20px;
+    opacity: 0.5;
+  }
+
+  h3 {
+    color: $peach;
+    font-size: $medium;
+    font-weight: bold;
+    margin: 10px auto;
+  }
+
+  blockquote {
+    font-size: $large;
+    line-height: $large * 1.3;
+    margin: 20px 0;
+    padding: 0;
+  }
+
+  iframe, img {
+    border: 10px solid #fafafa;
+    box-shadow: 0px 3px 5px $brown;
+  }
+
+  iframe {
+    margin-bottom: 30px;
+    &.inline {
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 10px auto 60px;
+    width: 90%;
+    &.stack {
+      margin-bottom: -30px;
+    }
+    &.registry {
+      display: inline-block;
+      margin: 20px;
+      width: 200px;
+      &:hover {
+        @include transition(box-shadow 0.2s);
+        box-shadow: 0px 4px 7px $brown;
+      }
+    }
+  }
+
+  sub {
+    display: block;
+    font-size: $small;
+    opacity: 0.5;
+    text-align: right;
+    &.hotel {
+      margin-right: 25px;
+      margin-top: -55px;
+    }
+    &.media {
+      margin: -55px 10px 20px auto;
+    }
+  }
+
+  @for $i from -10 through 10 {
+    .rotate#{$i} {
+      @include transform(rotate($i+deg));
+    }
+  }
+
+  $grids: (20 25 30 33 40 50 60 66 70 75 80);
+
+  @each $i in $grids {
+    & > div.grid#{$i} {
+      box-sizing: border-box;
+      padding: 0 20px;
+      width: percentage(($i - 1)/100);
+    }
+  }
+
+  form {
+    // margin: 10px 0;
+    width: 100%;
+    div.inputs {
+      box-sizing: border-box;
+      display: inline-block;
+      padding-right: 8px;
+      width: 75%;
+    }
+  }
+
+  input {
+    border: 0;
+    box-sizing: border-box;
+    font-family: "Radley", serif;
+    font-size: $medium;
+    margin: 10px auto;
+    padding: 5px;
+  }
+
+  input[type="text"] {
+    @include transition(box-shadow 0.1s);
+    color: $brown;
+    display: block;
+    outline: none;
+    width: 100%;
+    &:focus {
+      box-shadow: 0 0 5px $peony;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+     color: $peach;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: $peach;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: $peach;
+  }
+
+  :-ms-input-placeholder {
+     color: $peach;
+  }
+
+  input[type="submit"] {
+    @include transition(background-color 0.1s);
+    background-color: $peach;
+    box-sizing: border-box;
+    color: white;
+    display: inline-block;
+    height: 70px;
+    text-align: left;
+    vertical-align: top;
+    width: 25%;
+    white-space: normal;
+    &:hover {
+      background-color: $peony;
+      cursor: pointer;
+    }
+  }
+
 }

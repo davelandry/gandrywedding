@@ -1,0 +1,4 @@
+collections:
+  content:
+    output: true
+    permalink: /:path/

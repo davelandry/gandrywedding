@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <title>Melissa and David</title>
+
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" sizes="256x256" href="/icon.png">
+
+  <link href='http://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
+
+  <link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+  <nav>
+    <a href="/venue/" class="link{% if page.title == 'Venue' %} active{% endif %}">Venue</a>
+    <a href="/stay/" class="link{% if page.title == 'Stay' %} active{% endif %}">Stay</a>
+    <a href="/" id="title"{% if page.title == 'Home' %} class="active"{% endif %}></a>
+    <a href="/registry/" class="link{% if page.title == 'Registry' %} active{% endif %}">Registry</a>
+    <a href="/media/" class="link{% if page.title == 'Media' %} active{% endif %}">Media</a>
+  </nav>
+
+  <main>
+    {{ content }}
+  </main>
+
+</body>

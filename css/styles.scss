@@ -1,13 +1,10 @@
 ---
 ---
 
-$brown: #3d2e27;
-$truffle: #8c6757;
-$coconut: #bc794b;
-$coral: #c47d6a;
-$peony: #d36952;
-$ivory: #efe3d8;
-$peach: #dda485;
+$blush: #fcf3ed;
+$opal: #efeadf;
+$papaya: #e58469;
+$truffle: #88776a;
 
 $title: 128px;
 $xxlarge: 64px;
@@ -16,12 +13,18 @@ $large: 23.75px;
 $medium: 16px;
 $small: 11.85px;
 
-$font: "Quattrocento";
+$font: "MrsEaves";
 
 @font-face {
-  font-family: Futura;
-  font-weight: bold;
-  src: url("/css/fonts/FuturaStd-Heavy.otf") format("opentype");
+  font-family: MrsEaves;
+  font-weight: normal;
+  src: url("/css/fonts/MrsEavesSmallCaps_Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Lavanderia;
+  font-weight: normal;
+  src: url("/css/fonts/Lavanderia Sturdy.otf") format("opentype");
 }
 
 @mixin transition($animation) {
@@ -38,18 +41,19 @@ $font: "Quattrocento";
 }
 
 body {
-  background-color: $ivory;
+  background-color: white;
   background-position: top center;
   background-size: 256px;
   color: $truffle;
   font-family: $font, serif;
   font-size: $medium;
-  line-height: $medium * 1.4;
+  line-height: $medium * 1.2;
+  text-transform: lowercase;
 }
 
 nav {
   margin: 30px auto;
-  padding-left: 40px;
+  // padding-right: 40px;
   text-align: center;
   div, a {
     display: inline-block;
@@ -67,34 +71,30 @@ nav {
     @include transition(border-color 0.1s);
     border-color: transparent;
     border-style: solid;
-    border-width: 0 0 2px 0;
-    color: $peach;
-    font-family: Futura;
+    border-width: 0 0 1px 0;
+    color: $truffle;
+    font-family: MrsEaves;
     font-size: $medium;
     font-weight: bold;
-    letter-spacing: 3px;
+    // letter-spacing: 3px;
     margin: 30px 20px;
+    padding-left: 2px;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     &:hover {
-      border-color: $peach;
+      border-color: $truffle;
     }
     &.active {
-      border-color: $peony;
-      color: $peony;
+      border-color: $truffle;
       cursor: default;
     }
   }
   a#title {
-    background-image: url("/img/logo_peach.png");
+    background-image: url("/img/logo_papaya.png");
     background-size: 100%;
     height: 70px;
     width: 290px;
-    &.active {
-      background-image: url("/img/logo_peony.png");
-      cursor: default;
-    }
   }
 }
 
@@ -102,6 +102,12 @@ main {
   margin: 40px auto;
   max-width: 800px;
   text-align: center;
+
+  sup {
+    font-size: inherit;
+    padding: 2px;
+    vertical-align: baseline;
+  }
 
   & > div {
     display: inline-block;
@@ -112,10 +118,10 @@ main {
 
   a {
     @include transition(color 0.1s);
-    color: $coral;
+    color: $papaya;
     text-decoration: none;
     &:hover {
-      color: $peony;
+      color: $papaya;
       & > img {
         box-shadow: 0px 4px 7px $truffle;
       }
@@ -131,17 +137,17 @@ main {
       margin-bottom: 10px;
       position: relative;
 
-      &:before {
-        border-right: 2px solid $truffle;
-        content: "";
-        height: 86%;
-        left: -17px;
-        line-height: 0;
-        opacity: 0.5;
-        position: absolute;
-        top: 9%;
-        width: 0;
-      }
+      // &:before {
+      //   border-right: 2px solid $truffle;
+      //   content: "";
+      //   height: 86%;
+      //   left: -17px;
+      //   line-height: 0;
+      //   opacity: 0.5;
+      //   position: absolute;
+      //   top: 9%;
+      //   width: 0;
+      // }
     }
 
   }
@@ -153,39 +159,37 @@ main {
     margin-bottom: 0;
   }
 
-  h2:first-child {
-    border-top: 0;
-    margin-top: 0;
-    padding-top: 0;
-  }
-
   h2 {
-    border-top: 2px solid $peach;
     font-size: $large;
     font-weight: normal;
     line-height: $large;
-    margin: 20px auto 10px;
-    padding-top: 20px;
-    opacity: 0.5;
+    margin: 30px 0 10px;
+    // margin: 20px auto 10px;
+    // padding-top: 20px;
+    // opacity: 0.5;
+  }
+
+  h2:first-child {
+    margin-top: 5px;
   }
 
   h3 {
-    color: $peach;
+    color: $papaya;
     font-size: $medium;
     font-weight: bold;
     margin: 10px auto;
   }
 
   blockquote {
-    font-size: $large;
-    line-height: $large * 1.3;
-    margin: 20px 0;
+    font-size: $medium;
+    line-height: $medium;
+    margin: 100px 0;
     padding: 0;
   }
 
   iframe, img {
     @include transition(box-shadow 0.2s);
-    border: 10px solid #fafafa;
+    // border: 10px solid #fafafa;
     box-shadow: 0px 3px 5px $truffle;
   }
 
@@ -207,28 +211,32 @@ main {
     }
     &.registry {
       display: inline-block;
-      margin: 40px;
-      width: 200px;
+      margin: 30px 20px;
+      width: 180px;
     }
   }
 
+  div.registry {
+    text-align: center;
+  }
+
   sub {
+    color: $truffle;
     display: block;
     font-size: $small;
-    opacity: 0.5;
     text-align: right;
     &.hotel {
       margin-right: 25px;
-      margin-top: -55px;
+      margin-top: -58px;
     }
     &.media {
-      margin: -55px 10px 40px auto;
+      margin: -58px 10px 40px auto;
     }
   }
 
   @for $i from -10 through 10 {
     .rotate#{$i} {
-      @include transform(rotate($i+deg));
+      // @include transform(rotate($i+deg));
     }
   }
 
@@ -255,7 +263,7 @@ main {
 
   input {
     -webkit-appearance: none;
-    border: 0;
+    border: 1px solid $truffle;
     -webkit-border-radius: 0;
             border-radius: 0;
     box-sizing: border-box;
@@ -263,47 +271,53 @@ main {
     font-size: $medium;
     margin: 10px auto;
     padding: 6px 8px;
+    text-transform: lowercase;
   }
 
   input[type="text"] {
     @include transition(box-shadow 0.1s);
-    color: $brown;
+    color: $papaya;
     display: block;
     outline: none;
     width: 100%;
     &:focus {
-      box-shadow: 0 0 5px $peony;
+      box-shadow: 0 0 5px $papaya;
     }
   }
 
   ::-webkit-input-placeholder {
-     color: $peach;
+     color: $truffle;
+     opacity: 0.5;
   }
 
   :-moz-placeholder { /* Firefox 18- */
-     color: $peach;
+     color: $truffle;
+     opacity: 0.5;
   }
 
   ::-moz-placeholder {  /* Firefox 19+ */
-     color: $peach;
+     color: $truffle;
+     opacity: 0.5;
   }
 
   :-ms-input-placeholder {
-     color: $peach;
+     color: $truffle;
+     opacity: 0.5;
   }
 
   input[type="submit"] {
     @include transition(background-color 0.1s);
-    background-color: $peach;
+    background-color: $papaya;
+    border: 1px solid $papaya;
     box-sizing: border-box;
     color: white;
     display: inline-block;
-    height: 70px;
+    height: 74px;
     vertical-align: top;
     width: 20%;
     white-space: normal;
     &:hover {
-      background-color: $peony;
+      background-color: $papaya;
       cursor: pointer;
     }
   }

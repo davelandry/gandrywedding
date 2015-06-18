@@ -51,6 +51,15 @@ body {
   text-transform: lowercase;
 }
 
+span.password {
+  background-color: rgba(0,0,0,0.05);
+  font-family: "Times New Roman", "Times", Serif;
+  font-size: $small;
+  letter-spacing: 1px;
+  margin-top: -1px;
+  padding: 2px 4px;
+}
+
 nav {
   margin: 30px auto;
   // padding-right: 40px;
